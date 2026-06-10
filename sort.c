@@ -21,7 +21,7 @@ void insertSorted(void *base, int n, int size, void *x, Comparator cmp){
 
     
     for(int j = n; j > i; j--){
-        swapBytes(start + j * size, start + (j - 1) * size);
+        swapBytes(start + j * size, start + (j - 1) * size, size);
     }
 }
 
@@ -29,6 +29,6 @@ void insertionSort(void *base, int n, int size, Comparator cmp){
     if(n == 0 || n == 1)
         return ;
 
-    insertSorted(base, n - 1, size, base + (n - 1) * size, cmp);
     insertionSort(base, n - 1, size, cmp);
+    insertSorted(base, n - 1, size, base + (n - 1) * size, cmp);
 }
