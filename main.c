@@ -1,21 +1,13 @@
 #include "sort.h"
+#include "pirate.h"
 #include <stdio.h>
 
-
-int intComparator(const void *x, const void *y){
-    int a = *(int *)x;
-    int b = *(int *)y;
-
-    if(a < b) return -1;
-    if(a > b) return 1;
-    return 0;
-}
-
 int main(){
-    int a[] = {5,1,2,7,3};
-    insertionSort(a, 5, sizeof(int), intComparator);
-    for(int i = 0; i < 5; i++){
-        printf("%d - ", a[i]);
-    }
-    printf("\n");
+	Pirate pirate[10];
+	for(int i = 0; i < 10; i++)
+		initializePirate(&pirate[i], "Mauricio", 100 - i * 10, 23 + i, "Mugiwara");
+	
+	insertionSort(pirate, 10, sizeof(pirate[0]), comparePirates);
+	for(int i = 0; i < 10; i++)
+		printf("%s %lld %d %s\n", pirate[i].name, pirate[i].bounty, pirate[i].age, pirate[i].crew);
 }

@@ -7,7 +7,7 @@ typedef struct{
 	char name[STRING_SIZE];
 	long long int bounty;
 	int age;
-	char crew[STRING_SIZE]:
+	char crew[STRING_SIZE];
 } Pirate;
 
 int comparePirates(const void *, const void *);
